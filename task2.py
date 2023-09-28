@@ -12,8 +12,16 @@ class Calc:
     principal = 0
     rate = 0
     nPeriods = 0
+    time = 0
 
-    def __init__(self):
+    def __init__(self, p = 0, r = 0, n = 0):
+        if p > 0:
+            self.principal = p
+        if r > 0:
+            self.rate = r
+        if n > 0:
+            self.nPeriods = n
+
         #more input parameters needed
         return
 
