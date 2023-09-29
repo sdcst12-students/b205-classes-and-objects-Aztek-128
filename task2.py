@@ -18,23 +18,26 @@ class Calc:
         if p > 0:
             self.principal = p
         if r > 0:
-            self.rate = r
+            self.rate = r/100
         if n > 0:
             self.nPeriods = n
 
         #more input parameters needed
-        return
+        
 
     def interest(self,t):
-        return 
-    
+        #A = P(1+r/n)^nt
+        self.time = t
+        return round(((self.principal*((1+(self.rate/self.nPeriods)))**(self.nPeriods*self.time))-self.principal), 2)
+  
     def amount(self,t):
-        return
+        self.time = t
+        return round((self.principal*((1+(self.rate/self.nPeriods)))**(self.nPeriods*self.time)), 2)
 
-a = Calc(P=1000,r=4,n=2)
+a = Calc(p=1000,r=4,n=2)
 assert a.interest(3) == 126.16
 assert a.amount(5) == 1218.99
 
-b = Calc(P=5000,r=5.25,n=12)
+b = Calc(p=5000,r=5.25,n=12)
 assert b.interest(10) == 3442.62
 
